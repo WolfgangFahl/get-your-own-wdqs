@@ -11,7 +11,7 @@ This is a minimal, Docker Compose-based setup of the Wikidata Query Service, inc
 
 4. `cd data`
 
-5. Download a compressed data file from <https://datasets.scatter.red/orb> or your preferred source.
+5. Download a compressed data file from <https://datasets.scatter.red/orb> or [another source](https://addshore.com/2023/08/wikidata-query-service-blazegraph-jnl-file-on-cloudflare-r2-and-internet-archive/).
 
 6. `gzip -d [downloaded file]`
 
