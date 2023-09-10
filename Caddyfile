@@ -1,0 +1,13 @@
+:80 {
+        header Access-Control-Allow-Headers "*"
+        header Access-Control-Request-Headers "*"
+        header Access-Control-Allow-Origin "*"
+        header Vary Accept
+        reverse_proxy wdqs.svc:9999 {
+                header_up X-BIGDATA-READ-ONLY "yes"
+                buffer_requests
+                transport http {
+                        read_buffer 1M
+                }
+        }
+}
