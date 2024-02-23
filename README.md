@@ -29,7 +29,7 @@ This is a minimal, Docker Compose-based setup of the Wikidata Query Service, inc
 
 4. `cd sources`
 
-5. Download a Wikidata TTL dump: `wget https://datasets.scatter.red/wikimedia/other/wikibase/wikidatawiki/latest-all.ttl.gz` (you can also use [your preferred mirror](https://meta.wikimedia.org/wiki/Mirroring_Wikimedia_project_XML_dumps))
+5. Download a Wikidata TTL dump: `wget https://datasets.orbopengraph.com/wikimedia/other/wikibase/wikidatawiki/latest-all.ttl.gz` (you can also use [your preferred mirror](https://meta.wikimedia.org/wiki/Mirroring_Wikimedia_project_XML_dumps))
 
 6. `cd ..`
 
