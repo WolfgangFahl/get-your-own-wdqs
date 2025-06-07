@@ -1,0 +1,23 @@
+#!/bin/bash
+# WF 2025-06-07
+# launch script for local / private / get your own 
+# Wikidata Query Service
+docker compose down
+export ENABLE_UPDATE_LOOP=true;export BRAND_TITLE="WDQS@fur.bitplan.com";docker compose up -d
+sleep 5
+docker logs  get-your-own-wdqs-wdqs-1 2>&1 | tail -3
+# Check environment vars got set
+docker exec get-your-own-wdqs-wdqs-1 env | grep -E "(ENABLE_UPDATE_LOOP|BRAND_TITLE)"
+sleep 5
+# List logs directory
+docker exec get-your-own-wdqs-wdqs-1 ls -la /var/log/wdqs/
+# Check if update loop process is running
+docker exec get-your-own-wdqs-wdqs-1 ps aux | grep -i update
+# Tail update logs if they exist
+docker exec get-your-own-wdqs-wdqs-1 find /var/log -name "*update*" -type f
+# Check startup logs for update loop message
+docker logs get-your-own-wdqs-wdqs-1 | grep -i "update loop"
+# Check if runUpdateLoop.sh exists and is executable
+docker exec get-your-own-wdqs-wdqs-1 ls -la /runUpdateLoop.sh
+# finally start bash to optionally check further details
+docker exec -it get-your-own-wdqs-wdqs-1 /bin/bash
