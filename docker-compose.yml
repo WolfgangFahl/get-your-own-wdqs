@@ -27,6 +27,7 @@ services:
       - ./data:/wdqs/data           # Persistent data storage
       - ./sources:/sources          # Source files directory
       - ./runUpdateLoop.sh:/runUpdateLoop.sh:ro  # Update loop script (read-only)
+      - ./whitelist.txt:/wdqs/whitelist.txt:ro # whitelist
     command: >
       sh -c "
       if [ \"$$ENABLE_UPDATE_LOOP\" = \"true\" ]; then

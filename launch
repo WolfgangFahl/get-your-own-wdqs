@@ -3,7 +3,8 @@
 # launch script for local / private / get your own 
 # Wikidata Query Service
 docker compose down
-export ENABLE_UPDATE_LOOP=true;export BRAND_TITLE="WDQS@fur.bitplan.com";docker compose up -d
+BRAND_TITLE="${1:-$(hostname) Wikidata Query Service}"
+export ENABLE_UPDATE_LOOP=true;export BRAND_TITLE="$BRAND_TITLE";docker compose up -d
 sleep 5
 docker logs  get-your-own-wdqs-wdqs-1 2>&1 | tail -3
 # Check environment vars got set
