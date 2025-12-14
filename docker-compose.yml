@@ -45,6 +45,10 @@ services:
       - WIKIBASE_HOST=www.wikidata.org     # Source Wikidata instance
       - WDQS_HOST=wdqs.svc                 # Internal service host
       - WDQS_PORT=9999                     # Blazegraph port
+      # user agent - important!
+      # force direct JAVA option
+      - _JAVA_OPTIONS=-Dhttp.userAgent=OrbUpdateBot/0.3.97-wmde.8
+      #- UPDATER_OPTS=-Dhttp.userAgent=OrbUpdateBot/0.3.97-wmde.8 
       - HEAP_SIZE=224g                     # JVM heap size
       - BLAZEGRAPH_EXTRA_OPTS=-Xms224g     # Additional JVM options
       - ENABLE_UPDATE_LOOP=${ENABLE_UPDATE_LOOP:-false}
